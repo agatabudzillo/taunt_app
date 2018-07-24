@@ -19,7 +19,7 @@ def index():
 @app.route("/maketaunt", methods=['GET', 'POST'])
 def run_markov_model():
 	if request.method == 'POST': #this block is only entered when the form is submitted
-		filename = request.form.get('file-upload')
+		filename = request.form.get('filename')
 		wordnum = request.form['wordnum']
 		seed = request.form['seed']
 

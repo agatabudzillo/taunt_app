@@ -83,16 +83,26 @@
               </div>
              
               <div class="col-xl-4 mx-auto" style="margin-top:0px">
-                <input type="submit" name="submit" value="Generate Taunt!" id="submit" class="btn btn-block btn-lg btn-primary" style = "font-size: 1rem; margin-top:15px; margin-left:0px"/>         
+                <input type="submit" name="submit" value="Generate Taunt!" id="submit" class="btn btn-block btn-lg btn-primary" style = "font-size: 1rem; margin-top:15px; margin-bottom:15px; margin-left:0px"/>         
               </div>
+              
+              <!-- File Upload... to be continued-->
+<!--               <div class="form-group">
+                <label for="filename">Select input file::</label>
+                <select class="form-control" id="filename", name="filename">
+                  <option>default</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div> -->
 
-
-              <div class="col-xl-12 mx-auto">
+              <!-- File Upload Button -->
+<!--               <div class="col-xl-12 mx-auto">
                 <label class="mb-2" style = "font-size: 1.25rem; margin-top:15px; margin-bottom:15px">...or upload a .txt file with your own taunt magic!</label>
               </div>
 
-              <!-- File Upload Button -->
-                <input type="file" class="hidden" accept=".txt" name="file-upload" id="file-upload" style = "text-align:center; font-size: 1rem; margin-left:100px; margin-top:10px; margin-bottom:10px"/>
+              <input type="file" class="hidden" accept=".txt" name="filename" id="filename" style = "text-align:center; font-size: 1rem; margin-left:100px; margin-top:10px; margin-bottom:10px"/> -->
 
               </fieldset>
             </div>
@@ -108,12 +118,13 @@
     <div class="container">
       <div class="row">
 <!--         <div class="col-xl-10 col-lg-8 col-xl-7 mx-auto">
- -->          <blockquote class="inner-block">
+ -->     <div class="col-xl-12 mx-auto">
+          <blockquote class="inner-block">
             <span class="fa fa-3x fa-quote-left" style="font-size:48px;color:black"></span>
               <p class="block-text"><pre>{{ taunt_output|safe  }}</pre></p>
           </blockquote>
-<!--         </div>
- -->      </div>
+        </div>
+      </div>
     </div>
 
 
