@@ -23,8 +23,8 @@ header.masthead {
   -moz-background-size: auto;
   -o-background-size: auto;
   background-size: auto;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 header.masthead .overlay {
@@ -43,13 +43,13 @@ header.masthead h1 {
 }
 f
 header.masthead h2 {
-  font-size: 0.5rem;
+  font-size: 0.75rem;
 }
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
 /*    was originally 12rem*/
   }
   header.masthead h1 {
@@ -104,12 +104,12 @@ blockquote {
   background-color: white;
   margin-top: 25px;
   color:  white;
-  width: 1200px;
+  width: 1000px;
 /*  box-shadow: 0px 5px 20px 5px rgba(0,0,0,0.75);
 */}
 
 .block-text {
   text-align:left;
-  font-size: 19px;
+  font-size: 12px;
   margin-top: 13px;
 }
