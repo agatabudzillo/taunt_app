@@ -99,17 +99,17 @@ blockquote {
 
 .inner-block {
   text-align:center;
-*//*  overflow: hidden;
-/**/  border-radius: 17px;
+  overflow: hidden;
+/*  border-radius: 17px;
   background-color: white;
   margin-top: 25px;
   color:  white;
-  width: 1631px;
-/*  box-shadow: 0px 5px 20px 5px rgba(0,0,0,0.75);
+/*  width: 1631px;
+*//*  box-shadow: 0px 5px 20px 5px rgba(0,0,0,0.75);
 */}
 
 .block-text {
   text-align:left;
-  font-size: 12px;
+  font-size: 10px;
   margin-top: 13px;
 }
