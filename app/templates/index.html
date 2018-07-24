@@ -42,34 +42,13 @@
         }
     </script>
 
-    <!-- <link rel="stylesheet" type="text/css" href="static/css/file-upload.CSS" /> -->
+    <link rel="stylesheet" type="text/css" href="static/css/file-upload.CSS" />
     <script src="static/js/file-upload.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $('.file-upload').file_upload();
       });
     </script>
-
-
-    <title>jQuery UI Slider functionality</title>
-    <!-- <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
- -->
-      <!-- Javascript -->
-<!--             <script>
-               $(function() {
-                  $( "#slider-1" ).slider({
-                     orientation:"horizontal",
-                     value:50,
-                     tooltip:"always",
-                     slide: function( event, ui ) {
-                        $( "#wordnum" ).val( ui.value );
-                     }  
-                  });
-                  $( "#wordnum" ).val( $( "#slider-1" ).slider( "value" ) );
-               });
-            </script> -->
-
   </head>
 
   <body>
@@ -86,37 +65,34 @@
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-xl-12 mx-auto">
-            <h2 class="mb-5">Generate a taunt with our default input file....</h2>
+          <div class="col-md-12 mx-auto">
+            <label class="mb-2" style = "font-size: 1.25rem; margin-top:10px" >Generate a taunt with our default input file....</label>
           </div>
 
-          <form class="col-xl-12 mx-auto" id="tauntgenerator", action="/maketaunt", method="post">   
-            <div class="col-xl-12 mx-auto" id="main">
+          <form class="col-md-12 mx-auto" id="tauntgenerator", action="/maketaunt", method="post" style="margin-top:0px" >   
+            <div class="col-md-12 mx-auto" id="main" style="margin-top:0px">
               <fieldset>
               <!-- Number of Words -->
-              <label for="wordnum" style="font-size: 2rem">Number of words:</label>
+              <label for="wordnum" style="font-size: 1rem">Number of words:</label>
                 <input type="text" class="textfield" name="wordnum" id="wordnum" defaultValue="200" onkeypress="return isNumber(event)" style="border:0; color:#b9cd6d; font-weight:bold; text-align:center; margin-top:10px; margin-left:0px; width: 100px"/>
               
               <!-- Seed (optional) -->
-              <div class="col-xl-12 mx-auto">
-                <label for="seed" style="font-size: 2rem; font-weight:lighter">Taunt# (optional):</label>
+              <div class="col-md-12 mx-auto">
+                <label for="seed" style="font-size: 1rem; font-weight:lighter">Taunt# (optional):</label>
                   <input type="text" class="textfield" name="seed" id="seed" onkeypress="return isNumber(event)" style="border:0; color:#b9cd6d; font-weight:lighter; text-align:center; margin-top:10px; margin-left:0px; width: 150px"/>
               </div>
              
-              <div class="col-xl-4 mx-auto">
-                <input type="submit" name="submit" value="Generate Taunt!" id="submit" class="btn btn-block btn-lg btn-primary" style = "font-size: 2rem; margin-top:35px; margin-left:0px"/>         
+              <div class="col-md-4 mx-auto" style="margin-top:0px">
+                <input type="submit" name="submit" value="Generate Taunt!" id="submit" class="btn btn-block btn-lg btn-primary" style = "font-size: 1rem; margin-top:15px; margin-left:0px"/>         
               </div>
 
 
-              <div class="col-xl-12 mx-auto">
-                <h2 class="mb-5" style="margin-top:50px;">...or upload a .txt file with your own taunt magic!</h2>
+              <div class="col-md-12 mx-auto">
+                <label class="mb-2" style = "font-size: 1.25rem; margin-top:15px; margin-bottom:15px">...or upload a .txt file with your own taunt magic!</label>
               </div>
-
-             <!--  <h2 class="col-xl-12 mx-auto">...or upload your own .txt file with taunt magic!</h2> -->
 
               <!-- File Upload Button -->
-              <label class="file-upload btn btn-block btn-lg " for="file-upload"></label>
-                <input type="file" class="hidden" accept=".txt" name="file-upload" id="file-upload" style = "font-size: 2rem; margin-left:250px"/>
+                <input type="file" class="hidden" accept=".txt" name="file-upload" id="file-upload" style = "text-align:center; font-size: 1rem; margin-left:100px; margin-top:10px; margin-bottom:10px"/>
 
               </fieldset>
             </div>
@@ -131,7 +107,7 @@
 
     <div class="container">
       <div class="row">
-<!--         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+<!--         <div class="col-md-10 col-lg-8 col-md-7 mx-auto">
  -->          <blockquote class="inner-block">
             <span class="fa fa-3x fa-quote-left" style="font-size:48px;color:black"></span>
               <p class="block-text"><pre>{{ taunt_output|safe  }}</pre></p>
