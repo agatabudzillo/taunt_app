@@ -65,29 +65,29 @@
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mx-auto">
+          <div class="col-xl-12 mx-auto">
             <label class="mb-2" style = "font-size: 1.25rem; margin-top:10px" >Generate a taunt with our default input file....</label>
           </div>
 
-          <form class="col-md-12 mx-auto" id="tauntgenerator", action="/maketaunt", method="post" style="margin-top:0px" >   
-            <div class="col-md-12 mx-auto" id="main" style="margin-top:0px">
+          <form class="col-xl-12 mx-auto" id="tauntgenerator", action="/maketaunt", method="post" style="margin-top:0px" >   
+            <div class="col-xl-12 mx-auto" id="main" style="margin-top:0px">
               <fieldset>
               <!-- Number of Words -->
               <label for="wordnum" style="font-size: 1rem">Number of words:</label>
                 <input type="text" class="textfield" name="wordnum" id="wordnum" defaultValue="200" onkeypress="return isNumber(event)" style="border:0; color:#b9cd6d; font-weight:bold; text-align:center; margin-top:10px; margin-left:0px; width: 100px"/>
               
               <!-- Seed (optional) -->
-              <div class="col-md-12 mx-auto">
+              <div class="col-xl-12 mx-auto">
                 <label for="seed" style="font-size: 1rem; font-weight:lighter">Taunt# (optional):</label>
                   <input type="text" class="textfield" name="seed" id="seed" onkeypress="return isNumber(event)" style="border:0; color:#b9cd6d; font-weight:lighter; text-align:center; margin-top:10px; margin-left:0px; width: 150px"/>
               </div>
              
-              <div class="col-md-4 mx-auto" style="margin-top:0px">
+              <div class="col-xl-4 mx-auto" style="margin-top:0px">
                 <input type="submit" name="submit" value="Generate Taunt!" id="submit" class="btn btn-block btn-lg btn-primary" style = "font-size: 1rem; margin-top:15px; margin-left:0px"/>         
               </div>
 
 
-              <div class="col-md-12 mx-auto">
+              <div class="col-xl-12 mx-auto">
                 <label class="mb-2" style = "font-size: 1.25rem; margin-top:15px; margin-bottom:15px">...or upload a .txt file with your own taunt magic!</label>
               </div>
 
@@ -107,7 +107,7 @@
 
     <div class="container">
       <div class="row">
-<!--         <div class="col-md-10 col-lg-8 col-md-7 mx-auto">
+<!--         <div class="col-xl-10 col-lg-8 col-xl-7 mx-auto">
  -->          <blockquote class="inner-block">
             <span class="fa fa-3x fa-quote-left" style="font-size:48px;color:black"></span>
               <p class="block-text"><pre>{{ taunt_output|safe  }}</pre></p>
