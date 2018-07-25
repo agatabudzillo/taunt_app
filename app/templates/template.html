@@ -66,7 +66,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-12 mx-auto">
-            <label class="mb-2" style = "font-size: 1.25rem; margin-top:10px" >Generate a taunt with our default input file....</label>
+            <label class="mb-2" style = "font-size: 1rem; margin-top:10px" >Generate a taunt from previous Aphroditease scripts....</label>
           </div>
 
           <form class="col-xl-12 mx-auto" id="tauntgenerator", action="/maketaunt", method="post" style="margin-top:0px" >   
@@ -104,22 +104,27 @@
 
               <input type="file" class="hidden" accept=".txt" name="filename" id="filename" style = "text-align:center; font-size: 1rem; margin-left:100px; margin-top:10px; margin-bottom:10px"/> -->
 
+
+              <!-- Text input -->
+              <div class="col-xl-12 mx-auto">
+                <label for="corpus" style = "font-size: 1rem">...or paste in your own taunt input:</label>
+                <row>
+                <textarea type="text" class="textarea col-xl-12 mx-auto" name="corpus" id="corpus" rows=3 wrap="soft" style="border:0; color:#b9cd6d; font-weight:bold; text-align:center; margin-top:10px; margin-left:0px; margin-bottom:15px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"></textarea>
+                </row>
+              </div>
               </fieldset>
             </div>
           </form>
 
+<!--           <textarea form="tauntgenerator" name="corpus" id="corpus" cols="35" rows=2 wrap="soft"></textarea>
+ -->
         </div>
       </div>
-
-
-
     </header>
 
     <div class="container-fluid">
       {% block content %}{% endblock %}
     </div>
-
-
 
 
     <!-- Footer -->
@@ -129,25 +134,6 @@
           <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
             
             <p class="text-muted small mb-4 mb-lg-0">&copy; This Gift From the God(desse)s brought to you by Agata and Sweta. Language model provided by Elle O'Brien. Mighty Aphroditease 2018. All Farts Reserved.</p>
-          </div>
-          <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item mr-3">
-                <a href="#">
-                  <i class="fa fa-facebook fa-2x fa-fw"></i>
-                </a>
-              </li>
-              <li class="list-inline-item mr-3">
-                <a href="#">
-                  <i class="fa fa-twitter fa-2x fa-fw"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-instagram fa-2x fa-fw"></i>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>

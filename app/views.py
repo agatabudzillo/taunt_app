@@ -1,7 +1,7 @@
 import os
 import fnmatch
 from flask import render_template,request
-from .markov_model import basic_markov_model, format_output
+from .markov_model import get_filetext, basic_markov_model, format_output
 from app import app
 
 #APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -19,12 +19,13 @@ def index():
 @app.route("/maketaunt", methods=['GET', 'POST'])
 def run_markov_model():
 	if request.method == 'POST': #this block is only entered when the form is submitted
-		filename = request.form.get('filename')
-		wordnum = request.form['wordnum']
-		seed = request.form['seed']
+		#filename = request.form.get("filename")
+		wordnum = request.form["wordnum"]
+		seed = request.form["seed"]
+		corpus = request.form["corpus"]
 
-		if not filename:
-			filename = DEFAULTS["file"]
+		#if not filename:
+		#	filename = DEFAULTS["file"]
 
 		if not wordnum:
 			wordnum = DEFAULTS["wordnum"]
@@ -35,10 +36,19 @@ def run_markov_model():
 			seed = DEFAULTS["seed"]
 		else:
 			seed = int(seed)
+
+		if not corpus:
+			filename = DEFAULTS["file"]
+			corpus = get_filetext(filename)
+
 		
-		if fnmatch.fnmatch(filename, '*.txt'):
-			output_raw, startseed = basic_markov_model(filename, wordnum, seed_var=seed)
-			output = format_output(output_raw, startseed)
-		else:
-			output = "Wrong! I said upload a .txt file, asshole!"
+		output_raw, startseed = basic_markov_model(corpus, wordnum, seed_var=seed)
+		output = format_output(output_raw, startseed)
+		
 		return render_template("maketaunt.html", taunt_output=output);
+
+		#if fnmatch.fnmatch(filename, '*.txt'):
+		#	output_raw, startseed = basic_markov_model(corpus, wordnum, seed_var=seed)
+		#	output = format_output(output_raw, startseed)
+		#else:
+		#	output = "Wrong! I said upload a .txt file, asshole!"
