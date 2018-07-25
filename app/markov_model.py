@@ -5,8 +5,12 @@ import nltk
 from nltk import word_tokenize
 from nltk.util import ngrams
 
-"""Model functions (adapted from Sweta and Elle)""" 
-def basic_markov_model(filename, wordnum, seed_var=None):
+def get_filetext(filename):
+	with open(filename, encoding = 'utf-8') as f:
+		corpus = f.read()
+	return corpus
+
+def basic_markov_model(corpus, wordnum, seed_var=None):
 	random_max = 2**32 - 1
 	if not seed_var:
 		random.seed(None)
@@ -17,9 +21,6 @@ def basic_markov_model(filename, wordnum, seed_var=None):
 	# set my seed
 	random.seed(startseed)
 
-	with open(filename, encoding = 'utf-8') as f:
-		corpus = f.read()
-
 	# Some light cleaning    
 	corpus = corpus.lower()
 	corpus.replace('\n',';')
@@ -27,40 +28,46 @@ def basic_markov_model(filename, wordnum, seed_var=None):
 	# Get two grams, three grams, four grams
 	token = word_tokenize(corpus)
 	trigrams = list(ngrams(token,3))
+	
+	if trigrams == []:
+		return "Longer text input required.", startseed
+	else:
+		###### 3 grams ###############
+		start_gram = random.choice(trigrams) # random starting value
+		start1 = start_gram[0]
+		start2 = start_gram[1]
 
-	###### 3 grams ###############
-	start_gram = random.choice(trigrams) # random starting value
-	start1 = start_gram[0]
-	start2 = start_gram[1]
+		model_text = [start1, start2]
+		for i in range(0,wordnum):
+			cumsum = []
+			gram_choices = []
+			# Find all elements in the trigram corpus that start with startword
+			choices = [i for i, j in enumerate(trigrams) if j[0]==start1 and j[1] == start2]
+			# Get all the trigrams that occur
+			newlist = [trigrams[i] for i in choices]
+			
+			if len(newlist) == 0:
+				continue
+			# Get the most popular one
+			d2 = Counter(newlist)
+			# Get the cumulative probabilities of
+			for k,v in d2.items():
+				cumsum.append(v)
+				gram_choices.append(k)
+			cumsum = np.array([x / sum(cumsum) for x in cumsum])
+			cumsum = np.cumsum(cumsum)
+			# Generate a random number
+			r = random.random()
+			ind = np.min(np.where(cumsum > r))
+			# Get the most common n-gram from this model 
+			new_word = gram_choices[ind][2]
+			start1 = start2
+			start2 = new_word
+			model_text.append(new_word)
 
-	model_text = [start1, start2]
-	for i in range(0,wordnum):
-		cumsum = []
-		gram_choices = []
-		# Find all elements in the trigram corpus that start with startword
-		choices = [i for i, j in enumerate(trigrams) if j[0]==start1 and j[1] == start2]
-		# Get all the trigrams that occur
-		newlist = [trigrams[i] for i in choices]
-		# Get the most popular one
-		d2 = Counter(newlist)
-		# Get the cumulative probabilities of
-		for k,v in d2.items():
-			cumsum.append(v)
-			gram_choices.append(k)
-		cumsum = np.array([x / sum(cumsum) for x in cumsum])
-		cumsum = np.cumsum(cumsum)
-		# Generate a random number
-		r = random.random()
-		ind = np.min(np.where(cumsum > r))
-		# Get the most common n-gram from this model 
-		new_word = gram_choices[ind][2]
-		start1 = start2
-		start2 = new_word
-		model_text.append(new_word)
-
-	out_str = ' '.join(model_text)
-	out_str =out_str.replace('break', '\n\n')
-	out_str = "\n\n" + out_str + "\n\n"
+		out_str = ' '.join(model_text)
+		out_str =out_str.replace('break', '\n\n')
+		out_str = "\n\n" + out_str + "\n\n"
 	return out_str, startseed
 
 def format_output(txt, startseed):
